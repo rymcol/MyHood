@@ -30,7 +30,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        if let cell = tableView.dequeueReusableCellWithIdentifier("postCell") as? PostCell {
+            cell.configureCell(posts[indexPath.row])
+            return cell
+        } else {
+            let cell = PostCell()
+            cell.configureCell(posts[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
