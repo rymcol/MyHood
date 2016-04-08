@@ -19,6 +19,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let post1 = Post(imagePath: "", title: "Post 1", postDescripiton: "This is post 1's descripiton")
+        let post2 = Post(imagePath: "", title: "Post 2", postDescripiton: "This is post 2's descripiton")
+        let post3 = Post(imagePath: "", title: "Post 3", postDescripiton: "This is post 3's descripiton")
+        
+        posts.append(post1)
+        posts.append(post2)
+        posts.append(post3)
+        
+        tableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
