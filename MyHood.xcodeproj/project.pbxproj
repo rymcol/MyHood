@@ -15,6 +15,7 @@
 		942AE2BD1CB70FCA009B0873 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942AE2BC1CB70FCA009B0873 /* Post.swift */; };
 		942AE2BF1CB7186A009B0873 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942AE2BE1CB7186A009B0873 /* PostCell.swift */; };
 		942AE2C11CB81B79009B0873 /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942AE2C01CB81B79009B0873 /* AddPostVC.swift */; };
+		94F90FFE1CB85E9100095651 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F90FFD1CB85E9100095651 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		942AE2BC1CB70FCA009B0873 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		942AE2BE1CB7186A009B0873 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		942AE2C01CB81B79009B0873 /* AddPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
+		94F90FFD1CB85E9100095651 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				942AE2A71CB70B46009B0873 /* AppDelegate.swift */,
+				94F90FFC1CB85E7600095651 /* Services */,
 				942AE2B91CB70F92009B0873 /* Model */,
 				942AE2BA1CB70F97009B0873 /* View */,
 				942AE2BB1CB70F9B009B0873 /* Controller */,
@@ -95,6 +98,14 @@
 				942AE2A91CB70B46009B0873 /* ViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		94F90FFC1CB85E7600095651 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				94F90FFD1CB85E9100095651 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 				942AE2BD1CB70FCA009B0873 /* Post.swift in Sources */,
 				942AE2AA1CB70B46009B0873 /* ViewController.swift in Sources */,
 				942AE2C11CB81B79009B0873 /* AddPostVC.swift in Sources */,
+				94F90FFE1CB85E9100095651 /* DataService.swift in Sources */,
 				942AE2A81CB70B46009B0873 /* AppDelegate.swift in Sources */,
 				942AE2BF1CB7186A009B0873 /* PostCell.swift in Sources */,
 			);
@@ -329,6 +341,7 @@
 				942AE2B81CB70B46009B0873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
