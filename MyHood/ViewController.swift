@@ -11,8 +11,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
-    var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +18,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        let post1 = Post(imagePath: "", title: "Post 1", postDescripiton: "This is post 1's descripiton")
-        let post2 = Post(imagePath: "", title: "Post 2", postDescripiton: "This is post 2's descripiton")
-        let post3 = Post(imagePath: "", title: "Post 3", postDescripiton: "This is post 3's descripiton")
+        DataService.instance.loadPosts()
         
-        posts.append(post1)
-        posts.append(post2)
-        posts.append(post3)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.onPostsLoaded(_:)), name: "postsLoaded", object: nil)
+    }
+    
+    func onPostsLoaded(notif: AnyObject) {
         tableView.reloadData()
     }
     
@@ -36,16 +32,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return DataService.instance.loadedPosts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let post = DataService.instance.loadedPosts[indexPath.row]
+        
         if let cell = tableView.dequeueReusableCellWithIdentifier("postCell") as? PostCell {
-            cell.configureCell(posts[indexPath.row])
+            cell.configureCell(post)
             return cell
         } else {
             let cell = PostCell()
-            cell.configureCell(posts[indexPath.row])
+            cell.configureCell(post)
             return cell
         }
     }
