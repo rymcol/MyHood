@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePreview: UIImageView!
     @IBOutlet weak var titleField: UITextField!
@@ -24,6 +24,12 @@ class AddPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        titleField.delegate = self
+        descField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddPostVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     @IBAction func changeImage(sender: UIButton) {
@@ -50,6 +56,15 @@ class AddPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBAction func cancel(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }
